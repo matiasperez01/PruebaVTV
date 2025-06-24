@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema VTV</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark mb-4">
+      <div class="container-fluid">
+        <span class="navbar-brand">Sistema VTV - Certant</span>
+      </div>
+    </nav>
+
+    <div class="container">
+      <ul class="nav nav-tabs mb-3" id="vtvTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            data-bs-toggle="tab"
+            data-bs-target="#autos"
+          >
+            Vehiculos
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            data-bs-toggle="tab"
+            data-bs-target="#propietarios"
+            onclick="cargarPropietarios()"
+          >
+            Propietarios
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            data-bs-toggle="tab"
+            data-bs-target="#inspecciones"
+            onclick="cargarInspecciones()"
+          >
+            Inspecciones
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            data-bs-toggle="tab"
+            data-bs-target="#inspectores"
+            onclick="cargarInspectores()"
+          >
+            Inspectores
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <!-- AUTOS -->
+        <div class="tab-pane fade show active" id="autos">
+          <h3>Vehiculos</h3>
+          <div class="mb-3">
+            <label for="filtroEstado" class="form-label"
+              >Filtrar por estado:</label
+            >
+            <select id="filtroEstado" class="form-select w-auto">
+              <option value="">Todos</option>
+              <option value="APTO">Aptos</option>
+              <option value="CONDICIONAL">Condicionales</option>
+              <option value="RECHAZADO">Rechazados</option>
+            </select>
+          </div>
+          <table class="table table-striped" id="tablaAutos">
+            <thead>
+              <tr>
+                <th>Patente</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Vencimiento VTV</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <!-- INSPECCIONES -->
+        <div class="tab-pane fade" id="inspecciones">
+          <h3>Inspecciones</h3>
+          <table class="table" id="tablaInspecciones">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+                <th>Inspector</th>
+                <th>Auto</th>
+                <th>Mediciones</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <!-- INSPECTORES -->
+        <div class="tab-pane fade" id="inspectores">
+          <h3>Inspectores</h3>
+          <table class="table" id="tablaInspectores">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Inspecciones</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <!-- PROPIETARIOS -->
+        <div class="tab-pane fade" id="propietarios">
+          <h3>Propietarios</h3>
+          <table class="table" id="tablaPropietarios">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Exento</th>
+                <th>Vehiculos</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
